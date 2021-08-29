@@ -1,0 +1,36 @@
+.crash-card {
+    height: 160px;
+    background-color: #d9e1e3;
+    border-radius: 4px;
+    box-shadow: 2px 3px 4px #858484;
+    padding: 16px;
+    &:hover{
+        cursor: pointer;
+    }
+
+    &__header, &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 36px;
+    }
+
+    &__footer{
+        position: relative;
+        top: 36%;
+    }
+}
+
+.toggle-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.list{
+    cursor: pointer;
+    &:hover {        
+        z-index: 25;
+        box-shadow: 1px 1px 4px #756f6f;
+        border-radius: 2px;
+    }
+}

@@ -1,0 +1,13 @@
+<div>
+    <h2>
+        Crash Detail
+    </h2>
+</div>
+<main class="container">
+    <div>
+        <div class="row" *ngFor="let crashData of crashDetails; let i=index">
+           <div class="col-6 bold"> {{ crashData.name}} :</div> 
+           <div  class="col-6"> {{crashData.value}}</div>
+        </div>
+    </div>
+</main>

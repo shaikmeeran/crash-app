@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 toggle-container">
+      <mat-slide-toggle (change)="toggleListView($event)" [color]="'primary'"
+        >List view</mat-slide-toggle
+      >
+    </div>
+  </div>
+  <div class="row" [hidden]="isListView">
+    <div
+      class="col-xs-12 col-sm-12 col-md-6 col-lg-4 mt-3 mb-3"
+      *ngFor="let crash of crashes; let i = index"
+      (click)="openDetailView(crash)"
+    >
+      <div class="crash-card">
+        <div class="crash-card__header">
+          <span>
+            {{ crash.vehicle_type_code1 ? crash.vehicle_type_code1 : "n/a" }}
+          </span>
+          <span>
+            {{
+              crash.vehicle_type_code2 ? crash.vehicle_type_code2 : "n/a"
+            }}</span
+          >
+        </div>
+        <div class="crash-card__footer">
+          <span> {{ crash.crash_date }} </span>
+          <span> {{ crash.crash_time }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" [hidden]="!isListView">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Vehicle 1</th>
+          <th scope="col">Vehicle 2</th>
+          <th scope="col">Date</th>
+          <th scope="col">Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          class="list"
+          *ngFor="let crash of crashes; let i = index"
+          (click)="openDetailView(crash)"
+        >
+          <td>
+            {{ crash.vehicle_type_code1 ? crash.vehicle_type_code1 : "n/a" }}
+          </td>
+          <td>
+            {{ crash.vehicle_type_code2 ? crash.vehicle_type_code2 : "n/a" }}
+          </td>
+          <td>{{ crash.crash_date }}</td>
+          <td>{{ crash.crash_time }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
